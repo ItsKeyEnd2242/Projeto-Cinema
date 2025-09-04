@@ -1,0 +1,291 @@
+.filme-card {
+    display: flex;
+    justify-content: center;
+}
+
+:root {
+    --cor-fundo-principal: #1B2B3B;
+    --cor-destaque-laranja: #F4A42C;
+    --cor-secundaria-azul-claro: #40B4CC;
+    --cor-verde-personagem: #60BD68;
+    --cor-texto-claro: #ECF0F1;
+    --cor-detalhes-escuros: #222222;
+}
+
+body {
+    padding-left: 250px;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--cor-fundo-principal);
+    color: var(--cor-texto-claro);
+    line-height: 1.6;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: var(--cor-fundo-principal);
+    color: var(--cor-texto-claro);
+    padding: 0 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+header h1 {
+    padding-left: 80px;
+}
+
+header h1 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.8em;
+    color: var(--cor-destaque-laranja);
+    margin: 0;
+    flex-grow: 1;
+}
+
+.btn-lista {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: var(--cor-secundaria-azul-claro);
+    color: var(--cor-fundo-principal);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    z-index: 1001;
+    transition: background-color 0.3s ease;
+}
+
+.btn-lista:hover {
+    background-color: var(--cor-destaque-laranja);
+    color: var(--cor-fundo-principal);
+}
+
+.lista_opcoes {
+    background-image: url(/restaurante_do_chibiu/imgs/cinema.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    display: flex;
+    top: 60px;
+    left: -100%;
+    width: 250px;
+    height: 100%;
+    background-color: var(--cor-fundo-principal);
+    color: var(--cor-texto-claro);
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.4);
+    display: flex;
+    z-index: 999;
+    transition: left 0.3s ease;
+    justify-content: space-evenly;
+    align-content: flex-end;
+    flex-direction: column;
+}
+
+.lista_opcoes button {
+    height: 9vh;
+}
+
+.lista_opcoes.open {
+    left: 0;
+}
+
+#menu-container {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.filme-card {
+    background-color: var(--cor-detalhes-escuros);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.filme-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+.filme-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-bottom: 2px solid var(--cor-destaque-laranja);
+}
+
+.filme-details {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.filme-details h3 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.5em;
+    color: var(--cor-secundaria-azul-claro);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.filme-details p {
+    font-size: 0.9em;
+    color: var(--cor-texto-claro);
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.filme-info {
+    font-size: 0.85em;
+    color: var(--cor-destaque-laranja);
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.btn-resenha {
+    background-color: var(--cor-destaque-laranja);
+    color: var(--cor-fundo-principal);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-resenha:hover {
+    background-color: var(--cor-secundaria-azul-claro);
+    color: var(--cor-fundo-principal);
+}
+
+.resenha-sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 400px;
+    height: 100%;
+    background-color: var(--cor-detalhes-escuros);
+    color: var(--cor-texto-claro);
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    transition: right 0.3s ease-in-out;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.resenha-sidebar img{
+    width: 65%;
+    height: 80%;
+}
+
+.resenha-sidebar.open {
+    right: 0;
+}
+
+.resenha-sidebar .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 2em;
+    color: var(--cor-destaque-laranja);
+    cursor: pointer;
+    line-height: 1;
+}
+
+.resenha-conteudo h2 {
+    font-family: 'Roboto Slab', serif;
+    color: var(--cor-secundaria-azul-claro);
+    border-bottom: 2px solid var(--cor-destaque-laranja);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.resenha-conteudo .resenha-poster {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.resenha-conteudo .avaliacao-estrelas {
+    color: var(--cor-destaque-laranja);
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-left: 0;
+    }
+
+    .lista_opcoes {
+        top: 0;
+        height: 100%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    #menu-container {
+        grid-template-columns: 1fr;
+        padding: 15px;
+        margin: 15px auto;
+    }
+
+    .btn-lista {
+        left: 10px;
+    }
+
+    header {
+        justify-content: center;
+    }
+
+    header img {
+        display: none;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.2em;
+    }
+
+    .filme-details h3 {
+        font-size: 1.2em;
+    }
+
+    .filme-card img {
+        height: 250px;
+    }
+}
