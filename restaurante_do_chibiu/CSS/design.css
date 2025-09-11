@@ -100,10 +100,10 @@ header h1 {
 }
 
 #menu-container {
-    padding: 20px;
+    padding: 50px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
+    gap: 25px;
     max-width: 1200px;
     margin: 20px auto;
     background-color: rgba(0, 0, 0, 0.2);
@@ -253,10 +253,9 @@ header h1 {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
 
-    #menu-container {
-        grid-template-columns: 1fr;
-        padding: 15px;
-        margin: 15px auto;
+    #button-create{
+        margin-left: 145px auto;
+        padding: 50px;
     }
 
     .btn-lista {

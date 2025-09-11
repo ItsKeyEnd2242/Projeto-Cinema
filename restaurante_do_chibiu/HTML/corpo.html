@@ -29,6 +29,11 @@
 
     <main id="menu-container">
     </main>
+    
+    <div style="margin-left: 15%;">
+        <button id="button-create" style="width: 80%; height: 80%;"><h3>+<br>Adicionar novo</h3></button>
+    </div>
+    
 
     <aside id="resenha-sidebar" class="resenha-sidebar">
         <button class="close-btn" onclick="fecharResenha()">×</button>
@@ -69,7 +74,7 @@
                 name: "Interestelar",
                 description: "Uma equipe de exploradores viaja através de um buraco de minhoca em busca de um novo lar para a humanidade.",
                 year: 2014,
-                image: "../imgs/interestelar.png"
+                image: "../imgs/interestelar.jpg"
             },
             {
                 id: 5,
@@ -141,7 +146,10 @@
                     <h3>${filme.name}</h3>
                     <p>${filme.description}</p>
                     <span class="filme-info">Ano: ${filme.year}</span>
-                    <button class="btn-resenha" onclick="abrirResenha(${filme.id})">Ver Resenha</button>
+                    <div> 
+                        <button class="btn-resenha" onclick="abrirResenha(${filme.id})">Ver Resenha</button>
+                        <button class="btn-resenha" onclick="">Avaliar filme</button>
+                    </div
                 </div>
             `;
                 menuContainer.appendChild(filmeCard);
