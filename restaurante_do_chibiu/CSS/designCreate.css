@@ -1,0 +1,43 @@
+ :root {
+    --cor-fundo-principal: #1B2B3B;
+    --cor-destaque-laranja: #F4A42C;
+    --cor-secundaria-azul-claro: #40B4CC;
+    --cor-verde-personagem: #60BD68;
+    --cor-texto-claro: #ECF0F1;
+    --cor-detalhes-escuros: #222222;
+}
+
+ *{
+    box-sizing: border-box;
+ }
+ body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        color: black;
+        background-color: var(--cor-fundo-principal); /* Fundo escuro */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2vh;
+        margin: 10px;
+    }
+.card-personalizavel{
+    background-color: var(--cor-fundo-principal);
+    color: white;
+    justify-content: center;
+}
+.card-personalizavel:hover {
+    border: black 1px solid;
+    background-color: var(--cor-destaque-laranja);
+    color: black;
+}
+.card-titulo:hover, input:hover, .card-descricao:hover{
+    border: black 1px solid;
+}
+.btn-section{
+    margin-right: 25px;
+}

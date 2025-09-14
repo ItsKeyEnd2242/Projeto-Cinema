@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../CSS/design.css">
+    <link rel="stylesheet" href="../CSS/elementos.css">
+    <link rel="stylesheet" href="../CSS/designCreate.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creiar cartela nova</title>
+</head>
+
+<body>
+    <header>
+        <img src="../imgs/Cine.png" alt="Logo do Site"
+            style="width: 130px; height: 130px; border-radius: 35px;">
+        <h1>Criação do Card</h1>
+    </header>
+    <!-- Principal: cartão de criação de filmes -->
+    <div class="card-personalizavel">
+        <img src="https://via.placeholder.com/400x200" alt="Imagem do Card" class="card-imagem" id="card-image-display">
+
+        <div class="upload-btn-wrapper">
+            <button class="btn-upload">Alterar Imagem</button>
+            <input type="file" id="image-upload-input" accept="image/*">
+        </div>
+
+        <div class="card-conteudo">
+            <h3 class="card-titulo" contenteditable="true">
+                Título Editável
+            </h3>
+            <p class="card-descricao" contenteditable="true">
+                Clique aqui para editar a descrição do card.
+            </p>
+        </div>
+    </div>
+    <div class="btn-section">
+        <a href="./corpo.html">
+            <button>Cancelar</button>
+        </a>
+        <a>
+            <button>Salvar</button>
+        </a>
+    </div>
+</body>
+<script>
+    const imageUploadInput = document.getElementById('image-upload-input');
+    const cardImageDisplay = document.getElementById('card-image-display');
+
+    imageUploadInput.addEventListener('change', function (event) {
+        const file = event.target.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                cardImageDisplay.src = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+
+</html>

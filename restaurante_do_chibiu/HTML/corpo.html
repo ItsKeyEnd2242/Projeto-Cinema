@@ -13,28 +13,29 @@
     <header>
         <img src="../imgs/logo.png" alt="Logo do Site"
             style="width: 130px; height: 130px; border-radius: 35px;">
-        <h1>CATÁLOGO EM DESTAQUE</h1>
+        <h1>TELA PRINCIPAL</h1>
     </header>
 
     <button class="btn-lista" onclick="toggleSidebar()">☰</button>
 
     <div id="mySidebar" class="lista_opcoes">
         <button>Lançamentos</button>
-        <button>Mais bem avaliados🔥</button>
+        <button>Catalogo em Destaque</button>
         <button> Notícias</button>
-        <a href="./index_Login.html">
+        <a href="../HTML_USer/index_Login.html">
             <button>Sair</button>
         </a>
     </div>
 
     <main id="menu-container">
     </main>
-    
+    <!-- Principal: criar cartões de filmes -->
     <div style="margin-left: 15%;">
-        <button id="button-create" style="width: 80%; height: 80%;"><h3>+<br>Adicionar novo</h3></button>
+        <a href="../HTML/movieCreate.html">
+            <button id="button-create" style="width: 80%; height: 80%;"><h3>+<br>Adicionar novo</h3></button>
+        </a>
     </div>
     
-
     <aside id="resenha-sidebar" class="resenha-sidebar">
         <button class="close-btn" onclick="fecharResenha()">×</button>
         <div id="resenha-conteudo">
@@ -148,7 +149,6 @@
                     <span class="filme-info">Ano: ${filme.year}</span>
                     <div> 
                         <button class="btn-resenha" onclick="abrirResenha(${filme.id})">Ver Resenha</button>
-                        <button class="btn-resenha" onclick="">Avaliar filme</button>
                     </div
                 </div>
             `;
@@ -167,8 +167,10 @@
                     <img src="${filme.image}" alt="Pôster do filme ${filme.name}" class="resenha-poster">
                     <p><strong>Ano de Lançamento:</strong> ${filme.year}</p>
                     <p>${filme.description}</p>
-                    <p><strong>Avaliação:</strong></p>
-                    <div class="avaliacao-estrelas">★★★★☆</div>
+                    <p><strong>Avaliação Geral:</strong></p>
+                    <div class="avaliacao-estrelas"> ★★★★☆</div>
+<!-- Principal: botão editar avaliações -->
+                    <button class="btn-resenha" onclick="">⚙ Editar ⚙</button>
                     <p>Um filme espetacular que redefine o gênero com sua narrativa complexa e efeitos visuais inovadores. (Resenha de exemplo)</p>
                 `;
                 resenhaSidebar.classList.add('open');

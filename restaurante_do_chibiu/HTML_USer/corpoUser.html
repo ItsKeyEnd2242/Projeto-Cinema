@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/design.css">
+    <link rel="stylesheet" href="../CSS/elementos.css">
+    <title>CINE RESENHA</title>
+</head>
+
+<body>
+    <header>
+        <img src="../imgs/logo.png" alt="Logo do Site"
+            style="width: 130px; height: 130px; border-radius: 35px;">
+        <h1>TELA PRINCIPAL</h1>
+    </header>
+
+    </div>
+    <button class="btn-lista" onclick="toggleSidebar()">☰</button>
+
+    <div id="mySidebar" class="lista_opcoes">
+        <button>Lançamentos</button>
+        <button>Catalogo em Destaque</button>
+        <button> Notícias</button>
+        <a href="./index_Login.html">
+            <button>Sair</button>
+        </a>
+    </div>
+
+    <main id="menu-container">
+    </main>    
+
+    <aside id="resenha-sidebar" class="resenha-sidebar">
+        <button class="close-btn" onclick="fecharResenha()">X</button>
+        <div id="resenha-conteudo">
+        </div>
+    </aside>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById("mySidebar");
+            sidebar.classList.toggle("open");
+        }
+
+        const filmes = [
+            {
+                id: 1,
+                name: "Vingadores: Ultimato",
+                description: "Os Vingadores restantes devem reverter a devastação causada por Thanos e restaurar a ordem no universo.",
+                year: 2019,
+                image: "../imgs/avengers.png"
+            },
+            {
+                id: 2,
+                name: "O Senhor dos Anéis: A Sociedade do Anel",
+                description: "Um jovem hobbit herda um anel poderoso e embarca em uma jornada épica para destruí-lo e salvar a Terra Média.",
+                year: 2001,
+                image: "../imgs/aneis.png"
+            },
+            {
+                id: 3,
+                name: "A Origem",
+                description: "Um ladrão de sonhos se especializa em roubar segredos de mentes alheias, mas sua nova missão é implantar uma ideia.",
+                year: 2010,
+                image: "../imgs/origin.png"
+            },
+            {
+                id: 4,
+                name: "Interestelar",
+                description: "Uma equipe de exploradores viaja através de um buraco de minhoca em busca de um novo lar para a humanidade.",
+                year: 2014,
+                image: "../imgs/interestelar.jpg"
+            },
+            {
+                id: 5,
+                name: "Missão Impossível: Acerto de Contas",
+                description: "Ethan Hunt e sua equipe devem rastrear uma nova e aterrorizante arma que ameaça a humanidade inteira.",
+                year: 2023,
+                image: "../imgs/missao.png"
+            },
+            {
+                id: 6,
+                name: "Oppenheimer",
+                description: "A história do físico J. Robert Oppenheimer, o 'pai da bomba atômica', durante o Projeto Manhattan na Segunda Guerra Mundial.",
+                year: 2023,
+                image: "../imgs/openheimer.png"
+            },
+            {
+                id: 7,
+                name: "Barbie",
+                description: "Após ser expulsa da Barbielândia por ser imperfeita, a boneca Barbie decide ir para o mundo real em busca da felicidade.",
+                year: 2023,
+                image: "../imgs/barbie.png"
+            },
+            {
+                id: 8,
+                name: "Homem-Aranha: Através do Aranhaverso",
+                description: "Miles Morales viaja pelo Multiverso e se depara com uma força ainda mais poderosa que o vilão da vez.",
+                year: 2023,
+                image: "../imgs/miles.png"
+            },
+            {
+                id: 9,
+                name: "Elementos",
+                description: "Em uma cidade onde os elementos da natureza convivem em harmonia, uma jovem do elemento fogo e um jovem do elemento água descobrem que têm mais em comum do que imaginavam.",
+                year: 2023,
+                image: "../imgs/elementos.png"
+            },
+            {
+                id: 10,
+                name: "Top Gun: Maverick",
+                description: "Depois de mais de trinta anos de serviço como um dos principais aviadores da Marinha, Pete 'Maverick' Mitchell está de volta.",
+                year: 2022,
+                image: "../imgs/maverick.png"
+            },
+            {
+                id: 11,
+                name: "John Wick 4",
+                description: "John Wick encontra um caminho para derrotar a High Table. Mas antes que ele possa ganhar sua liberdade, ele deve enfrentar um novo inimigo com poderosas alianças em todo o mundo.",
+                year: 2023,
+                image: "../imgs/babayaga.png"
+            },
+            {
+                id: 12,
+                name: "Super Mario Bros. O Filme",
+                description: "Os irmãos Mario e Luigi, encanadores de Brooklyn, vão parar no Reino dos Cogumelos e devem impedir que o maligno Bowser domine o universo.",
+                year: 2023,
+                image: "../imgs/mario.png"
+            }
+        ];
+
+        function renderFilmes() {
+            const menuContainer = document.getElementById('menu-container');
+            menuContainer.innerHTML = '';
+            filmes.forEach(filme => {
+                const filmeCard = document.createElement('div');
+                filmeCard.className = 'filme-card';
+                filmeCard.innerHTML = `
+                <img src="${filme.image}" alt="Capa do filme ${filme.name}">
+                <div class="filme-details">
+                    <h3>${filme.name}</h3>
+                    <p>${filme.description}</p>
+                    <span class="filme-info">Ano: ${filme.year}</span>
+                    <div> 
+                        <button class="btn-resenha" onclick="abrirResenha(${filme.id})">Ver Resenha</button>
+                    </div
+                </div>
+            `;
+                menuContainer.appendChild(filmeCard);
+            });
+        }
+
+        function abrirResenha(filmeId) {
+            const resenhaSidebar = document.getElementById('resenha-sidebar');
+            const resenhaConteudo = document.getElementById('resenha-conteudo');
+            const filme = filmes.find(f => f.id === filmeId);
+
+            if (filme) {
+                resenhaConteudo.innerHTML = `
+                    <h2>${filme.name}</h2>
+                    <img src="${filme.image}" alt="Pôster do filme ${filme.name}" class="resenha-poster">
+                    <p><strong>Ano de Lançamento:</strong> ${filme.year}</p>
+                    <p>${filme.description}</p>
+                    <p><strong>Avaliação Geral:</strong></p>
+                    <div class="avaliacao-estrelas"> ★★★★☆</div>
+                    <p>Um filme espetacular que redefine o gênero com sua narrativa complexa e efeitos visuais inovadores. (Resenha de exemplo)</p>
+                `;
+                resenhaSidebar.classList.add('open');
+            }
+        }
+
+        function fecharResenha() {
+            const resenhaSidebar = document.getElementById('resenha-sidebar');
+            resenhaSidebar.classList.remove('open');
+        }
+
+        document.addEventListener('DOMContentLoaded', renderFilmes);
+    </script>
+</body>
+
+</html>
